@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
 import 'package:project/consts/my_validators.dart';
+import 'package:project/screens/auth/forgot_password.dart';
+import 'package:project/screens/auth/register.dart';
 import 'package:project/widgets/app_name_text.dart';
 import 'package:project/widgets/auth/google_btn.dart';
 import 'package:project/widgets/subtitle_text.dart';
 import 'package:project/widgets/title_text.dart';
 
 class LoginScreen extends StatefulWidget {
+  static const routName = '/LoginScreen';
   const LoginScreen({super.key});
-  static String routName = '/LoginScreen';
+
   @override
   State<LoginScreen> createState() => _LoginScreenState();
 }
@@ -137,7 +140,10 @@ class _LoginScreenState extends State<LoginScreen> {
                       Align(
                         alignment: Alignment.centerRight,
                         child: TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.pushNamed(
+                                context, ForgotPasswordScreen.routeName);
+                          },
                           child: const SubtitleTextWidget(
                             label: "Forgot password?",
                             textDecoration: TextDecoration.underline,
@@ -240,12 +246,15 @@ class _LoginScreenState extends State<LoginScreen> {
                             label: "Don't have an account?",
                           ),
                           TextButton(
-                            onPressed: () {},
                             child: const SubtitleTextWidget(
                               label: "Sign up",
                               textDecoration: TextDecoration.underline,
                               fontStyle: FontStyle.italic,
                             ),
+                            onPressed: () {
+                              Navigator.pushNamed(
+                                  context, RegisterScreen.routName);
+                            },
                           ),
                         ],
                       ),

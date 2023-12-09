@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:project/consts/theme_data.dart';
 import 'package:project/providers/theme_provider.dart';
 import 'package:project/root_screen.dart';
+import 'package:project/screens/auth/forgot_password.dart';
 import 'package:project/screens/auth/login.dart';
 import 'package:project/screens/auth/register.dart';
 import 'package:project/screens/auth/login.dart';
@@ -43,6 +44,8 @@ class MyApp extends StatelessWidget {
             RegisterScreen.routName: (context) => const RegisterScreen(),
             LoginScreen.routName: (context) => const LoginScreen(),
             OrdersScreenFree.routeName: (context) => const OrdersScreenFree(),
+            ForgotPasswordScreen.routeName: (context) =>
+                const ForgotPasswordScreen(),
           },
         );
       }),
