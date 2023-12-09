@@ -5,22 +5,22 @@ class Style {
   static ThemeData themeData(
       {required bool isDarkTheme, required BuildContext context}) {
     return ThemeData(
-      scaffoldBackgroundColor: isDarkTheme
-          ? AppColors.darkScaffoldColor
-          : AppColors.lightScaffoldColor,
-      cardColor: isDarkTheme
-          ? const Color.fromARGB(255, 13, 6, 37)
-          : AppColors.lightCardColor,
-      brightness: isDarkTheme ? Brightness.dark : Brightness.light,
-      appBarTheme: AppBarTheme(
-        backgroundColor: isDarkTheme
+        scaffoldBackgroundColor: isDarkTheme
             ? AppColors.darkScaffoldColor
             : AppColors.lightScaffoldColor,
-        elevation: 0, //remove the line after appbar
-        centerTitle: false,
-        titleTextStyle:
-            TextStyle(color: isDarkTheme ? Colors.white : Colors.black),
-      ),
+        cardColor: isDarkTheme
+            ? const Color.fromARGB(255, 13, 6, 37)
+            : AppColors.lightCardColor,
+        brightness: isDarkTheme ? Brightness.dark : Brightness.light,
+        appBarTheme: AppBarTheme(
+          backgroundColor: isDarkTheme
+              ? AppColors.darkScaffoldColor
+              : AppColors.lightScaffoldColor,
+          elevation: 0, //remove the line after appbar
+          centerTitle: false,
+          titleTextStyle:
+              TextStyle(color: isDarkTheme ? Colors.white : Colors.black),
+        ),
         inputDecorationTheme: InputDecorationTheme(
             filled: true,
             contentPadding: const EdgeInsets.all(10),

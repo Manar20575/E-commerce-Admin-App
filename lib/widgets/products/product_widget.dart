@@ -1,5 +1,3 @@
-import 'dart:math';
-import 'dart:developer';
 import 'package:fancy_shimmer_image/fancy_shimmer_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
@@ -7,7 +5,6 @@ import 'package:project/consts/app_constants.dart';
 import 'package:project/screens/inner_screens/product_details.dart';
 import 'package:project/widgets/subtitle_text.dart';
 import 'package:project/widgets/title_text.dart';
-import 'package:project/services/assets_manager.dart';
 
 class ProductWidget extends StatefulWidget {
   const ProductWidget({super.key});

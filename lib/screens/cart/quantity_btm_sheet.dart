@@ -29,7 +29,7 @@ class QuantityBottomSheetWidget extends StatelessWidget {
             ),
             ListView.builder(
                 shrinkWrap: true,
-                physics: NeverScrollableScrollPhysics(),
+                physics: const NeverScrollableScrollPhysics(),
                 itemCount: 30,
                 itemBuilder: (context, index) {
                   return InkWell(

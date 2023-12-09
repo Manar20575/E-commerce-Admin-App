@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
+import 'package:project/screens/inner_screens/wishlist.dart';
 import 'package:project/services/assets_manager.dart';
 import 'package:project/widgets/app_name_text.dart';
 import 'package:project/widgets/subtitle_text.dart';
@@ -16,7 +17,9 @@ class ProfileScreen extends StatelessWidget {
     final themeProvider = Provider.of<ThemeProvider>(context);
     return Scaffold(
       appBar: AppBar(
-        title: const AppNameTextWidget(fontSize: 25,),
+        title: const AppNameTextWidget(
+          fontSize: 25,
+        ),
         leading: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Image.asset(AssetsManager.shoppingCart),
@@ -77,7 +80,10 @@ class ProfileScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const TitlesTextWidget(label: 'General',fontSize: 25,),
+                const TitlesTextWidget(
+                  label: 'General',
+                  fontSize: 25,
+                ),
                 CustomListTile(
                   imagePath: AssetsManager.orderSvg,
                   text: 'All orders',
@@ -86,7 +92,9 @@ class ProfileScreen extends StatelessWidget {
                 CustomListTile(
                   imagePath: AssetsManager.wishlistSvg,
                   text: 'Wishlist',
-                  function: () {},
+                  function: () {
+                    Navigator.pushNamed(context, WishListScreen.routeName);
+                  },
                 ),
                 CustomListTile(
                   imagePath: AssetsManager.recent,
@@ -104,7 +112,10 @@ class ProfileScreen extends StatelessWidget {
                 const SizedBox(
                   height: 7,
                 ),
-                const TitlesTextWidget(label: 'Settings',fontSize: 25,),
+                const TitlesTextWidget(
+                  label: 'Settings',
+                  fontSize: 25,
+                ),
                 SwitchListTile(
                   secondary: Image.asset(
                     AssetsManager.theme,
@@ -129,9 +140,7 @@ class ProfileScreen extends StatelessWidget {
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.redAccent,
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(
-                    (30)
-                  ),
+                  borderRadius: BorderRadius.circular((30)),
                 ),
               ),
               onPressed: () {},
@@ -165,7 +174,7 @@ class CustomListTile extends StatelessWidget {
         imagePath,
         height: 40,
       ),
-      title: SubtitleTextWidget(label: text,fontSize: 20),
+      title: SubtitleTextWidget(label: text, fontSize: 20),
       trailing: const Icon(IconlyLight.arrowRight2),
     );
   }

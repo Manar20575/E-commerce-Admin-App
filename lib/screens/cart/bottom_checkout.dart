@@ -16,7 +16,7 @@ class CartBottomCheckout extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 10),
           child:
-          Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
             const Flexible(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
