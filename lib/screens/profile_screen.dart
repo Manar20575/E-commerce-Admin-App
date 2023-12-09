@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
-import 'package:project/main.dart';
 import 'package:project/screens/inner_screens/viewed_recently.dart';
 import 'package:project/screens/inner_screens/wishlist.dart';
 import 'package:project/services/assets_manager.dart';

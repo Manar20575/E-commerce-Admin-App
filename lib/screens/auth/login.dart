@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
 import 'package:project/consts/my_validators.dart';
 import 'package:project/widgets/app_name_text.dart';
+import 'package:project/widgets/auth/google_btn.dart';
 import 'package:project/widgets/subtitle_text.dart';
 import 'package:project/widgets/title_text.dart';
 
@@ -180,30 +181,54 @@ class _LoginScreenState extends State<LoginScreen> {
                       const SizedBox(
                         height: 16.0,
                       ),
-                      Row(
-                        children: [
-                          ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              padding: const EdgeInsets.all(12),
-                              // backgroundColor:
-                              // Theme.of(context).colorScheme.background,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(
-                                  10,
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: SizedBox(
+                          height: kBottomNavigationBarHeight + 10,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              const Expanded(
+                                flex: 2,
+                                child: SizedBox(
+                                  height: kBottomNavigationBarHeight,
+                                  child: FittedBox(
+                                    child: GoogleButton(),
+                                  ),
                                 ),
                               ),
-                            ),
-                            child: const Text(
-                              "Guest",
-                              style: TextStyle(
-                                fontSize: 20,
+                              const SizedBox(
+                                width: 8,
                               ),
-                            ),
-                            onPressed: () async {
-                              _loginFct();
-                            },
+                              Expanded(
+                                child: SizedBox(
+                                  height: kBottomNavigationBarHeight,
+                                  child: ElevatedButton(
+                                    style: ElevatedButton.styleFrom(
+                                      padding: const EdgeInsets.all(12),
+                                      // backgroundColor:
+                                      // Theme.of(context).colorScheme.background,
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(
+                                          10,
+                                        ),
+                                      ),
+                                    ),
+                                    child: const Text(
+                                      "Guest",
+                                      style: TextStyle(
+                                        fontSize: 20,
+                                      ),
+                                    ),
+                                    onPressed: () async {
+                                      _loginFct();
+                                    },
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
-                        ],
+                        ),
                       ),
                       const SizedBox(
                         height: 16.0,

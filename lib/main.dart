@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project/consts/theme_data.dart';
 import 'package:project/providers/theme_provider.dart';
-import 'package:project/root_screen.dart';
 import 'package:project/screens/auth/login.dart';
 import 'package:project/screens/inner_screens/product_details.dart';
 import 'package:project/screens/inner_screens/viewed_recently.dart';
