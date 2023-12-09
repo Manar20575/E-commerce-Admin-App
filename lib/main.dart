@@ -3,6 +3,7 @@ import 'package:project/consts/theme_data.dart';
 import 'package:project/providers/theme_provider.dart';
 import 'package:project/root_screen.dart';
 import 'package:project/screens/inner_screens/product_details.dart';
+import 'package:project/screens/inner_screens/viewed_recently.dart';
 import 'package:project/screens/inner_screens/wishlist.dart';
 import 'package:provider/provider.dart';
 
@@ -30,6 +31,8 @@ class MyApp extends StatelessWidget {
           routes: {
             productDetails.routName: (context) => const productDetails(),
             WishListScreen.routeName: (context) => const WishListScreen(),
+            ViewedRecentlyScreen.routeName: (context) =>
+                const ViewedRecentlyScreen(),
           },
         );
       }),
