@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:project/consts/theme_data.dart';
 import 'package:project/providers/theme_provider.dart';
 import 'package:project/screens/auth/login.dart';
+import 'package:project/screens/auth/register.dart';
 import 'package:project/screens/inner_screens/product_details.dart';
 import 'package:project/screens/inner_screens/viewed_recently.dart';
 import 'package:project/screens/inner_screens/wishlist.dart';
@@ -24,10 +25,10 @@ class MyApp extends StatelessWidget {
       ],
       child: Consumer<ThemeProvider>(builder: (context, themeProvider, child) {
         return MaterialApp(
-          title: 'Shop Smart AR ',
+          title: 'Shop Smart',
           theme: Style.themeData(
               isDarkTheme: themeProvider.getIsDarkTheme, context: context),
-          home: const LoginScreen(),
+          home: const RegisterScreen(),
           routes: {
             productDetails.routName: (context) => const productDetails(),
             WishListScreen.routeName: (context) => const WishListScreen(),
