@@ -8,7 +8,7 @@ import 'package:project/widgets/title_text.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
-
+  static String routName = '/LoginScreen';
   @override
   State<LoginScreen> createState() => _LoginScreenState();
 }

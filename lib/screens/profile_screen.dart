@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
+import 'package:project/screens/auth/login.dart';
+import 'package:project/screens/inner_screens/orders/orders_screen.dart';
 
 import 'package:project/screens/inner_screens/viewed_recently.dart';
 import 'package:project/screens/inner_screens/wishlist.dart';
@@ -90,7 +92,9 @@ class ProfileScreen extends StatelessWidget {
                 CustomListTile(
                   imagePath: AssetsManager.orderSvg,
                   text: 'All orders',
-                  function: () {},
+                  function: () {
+                    Navigator.pushNamed(context, OrdersScreenFree.routeName);
+                  },
                 ),
                 CustomListTile(
                   imagePath: AssetsManager.wishlistSvg,
@@ -144,22 +148,24 @@ class ProfileScreen extends StatelessWidget {
           ),
           Center(
             child: ElevatedButton.icon(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.redAccent,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular((30)),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.redAccent,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular((30)),
+                  ),
                 ),
-              ),
-              icon: const Icon(Icons.login),
-              label: const Text('Login'),
-              onPressed: () async {
-                await MyAppMethods.showErrorORWarningDialog(
-                    context: context,
-                    subtitle: "Are you sure?",
-                    fct: () {},
-                    isError: false);
-              },
-            ),
+                icon: const Icon(Icons.login),
+                label: const Text('Login'),
+                // onPressed: () async {
+                //   await MyAppMethods.showErrorORWarningDialog(
+                //       context: context,
+                //       subtitle: "Are you sure?",
+                //       fct: () {},
+                //       isError: false);
+                // },
+                onPressed: () {
+                  Navigator.pushNamed(context, LoginScreen.routName);
+                }),
           ),
         ],
       ),
