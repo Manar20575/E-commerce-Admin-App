@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:project/consts/my_validators.dart';
+import 'package:project/services/my_app_methods.dart';
 import 'package:project/widgets/app_name_text.dart';
 import 'package:project/widgets/subtitle_text.dart';
 import 'package:project/widgets/title_text.dart';
@@ -103,7 +104,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   width: size.width * 0.3,
                   child: PickImageWidget(
                     pickedImage: _pickedImage,
-                    function: () {},
+                    function: () {
+                      MyAppMethods.imagePickerDialog(
+                          context: context,
+                          cameraFCT: () {},
+                          galleryFCT: () {},
+                          removeFCT: () {});
+                    },
                   ),
                 ),
                 const SizedBox(

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:project/services/assets_manager.dart';
-import 'package:project/widgets/subtitle_text.dart';
+import 'package:project/widgets/title_text.dart';
+import '../widgets/subtitle_text.dart';
+import 'assets_manager.dart';
 
-class myAppMethods {
-  static Future<void> showErrororWarningDialog({
+class MyAppMethods {
+  static Future<void> showErrorORWarningDialog({
     required BuildContext context,
     required String subtitle,
     required Function fct,
@@ -13,16 +14,16 @@ class myAppMethods {
         context: context,
         builder: (context) {
           return AlertDialog(
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(12.0)),
             backgroundColor: Theme.of(context).scaffoldBackgroundColor,
             content: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
                 Image.asset(
                   AssetsManager.warning,
-                  height: 100,
-                  width: 100,
+                  height: 60,
+                  width: 60,
                 ),
                 const SizedBox(
                   height: 16.0,
@@ -43,10 +44,8 @@ class myAppMethods {
                         onPressed: () {
                           Navigator.pop(context);
                         },
-                        child: SubtitleTextWidget(
-                          label: "Cancel",
-                          color: Colors.green,
-                        ),
+                        child: const SubtitleTextWidget(
+                            label: "Cancel", color: Colors.green),
                       ),
                     ),
                     TextButton(
@@ -54,15 +53,73 @@ class myAppMethods {
                         fct();
                         Navigator.pop(context);
                       },
-                      child: SubtitleTextWidget(
-                        label: "Ok",
-                        color: Colors.red,
-                      ),
+                      child: const SubtitleTextWidget(
+                          label: "OK", color: Colors.red),
                     ),
                   ],
-                ),
+                )
               ],
             ),
+          );
+        });
+  }
+
+  static Future<void> imagePickerDialog({
+    required BuildContext context,
+    required Function cameraFCT,
+    required Function galleryFCT,
+    required Function removeFCT,
+  }) async {
+    await showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: const Center(
+              child: TitlesTextWidget(
+                label: "Choose option",
+              ),
+            ),
+            content: SingleChildScrollView(
+                child: ListBody(
+              children: [
+                TextButton.icon(
+                  onPressed: () {
+                    cameraFCT();
+                    if (Navigator.canPop(context)) {
+                      Navigator.pop(context);
+                    }
+                  },
+                  icon: const Icon(Icons.camera),
+                  label: const Text(
+                    "Camera",
+                  ),
+                ),
+                TextButton.icon(
+                  onPressed: () {
+                    galleryFCT();
+                    if (Navigator.canPop(context)) {
+                      Navigator.pop(context);
+                    }
+                  },
+                  icon: const Icon(Icons.image),
+                  label: const Text(
+                    "Gallery",
+                  ),
+                ),
+                TextButton.icon(
+                  onPressed: () {
+                    removeFCT();
+                    if (Navigator.canPop(context)) {
+                      Navigator.pop(context);
+                    }
+                  },
+                  icon: const Icon(Icons.remove),
+                  label: const Text(
+                    "Remove",
+                  ),
+                ),
+              ],
+            )),
           );
         });
   }

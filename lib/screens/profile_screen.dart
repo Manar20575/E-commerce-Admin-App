@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
+
 import 'package:project/screens/inner_screens/viewed_recently.dart';
 import 'package:project/screens/inner_screens/wishlist.dart';
 import 'package:project/services/assets_manager.dart';
@@ -152,7 +153,7 @@ class ProfileScreen extends StatelessWidget {
               icon: const Icon(Icons.login),
               label: const Text('Login'),
               onPressed: () async {
-                await myAppMethods.showErrororWarningDialog(
+                await MyAppMethods.showErrorORWarningDialog(
                     context: context,
                     subtitle: "Are you sure?",
                     fct: () {},
