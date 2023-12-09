@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:project/consts/my_validators.dart';
 import 'package:project/widgets/app_name_text.dart';
 import 'package:project/widgets/subtitle_text.dart';
 import 'package:project/widgets/title_text.dart';
+
+import '../../widgets/auth/pick_image_widget.dart';
 
 class RegisterScreen extends StatefulWidget {
   static const routName = '/RegisterScreen';
@@ -24,6 +27,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
       _confirmPasswordFocusNode;
   late final _formKey = GlobalKey<FormState>();
   bool obscureText = true;
+
+  XFile? _pickedImage;
   @override
   void initState() {
     _nameController = TextEditingController();
@@ -60,6 +65,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();
@@ -87,6 +93,17 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       TitlesTextWidget(label: "Welcome"),
                       SubtitleTextWidget(label: "Your welcome message")
                     ],
+                  ),
+                ),
+                const SizedBox(
+                  height: 16.0,
+                ),
+                SizedBox(
+                  height: size.width * 0.3,
+                  width: size.width * 0.3,
+                  child: PickImageWidget(
+                    pickedImage: _pickedImage,
+                    function: () {},
                   ),
                 ),
                 const SizedBox(
