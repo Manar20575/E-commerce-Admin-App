@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
+import 'package:project/main.dart';
 import 'package:project/screens/inner_screens/viewed_recently.dart';
 import 'package:project/screens/inner_screens/wishlist.dart';
 import 'package:project/services/assets_manager.dart';
+import 'package:project/services/my_app_methods.dart';
 import 'package:project/widgets/app_name_text.dart';
 import 'package:project/widgets/subtitle_text.dart';
 import 'package:project/widgets/title_text.dart';
@@ -148,9 +150,15 @@ class ProfileScreen extends StatelessWidget {
                   borderRadius: BorderRadius.circular((30)),
                 ),
               ),
-              onPressed: () {},
               icon: const Icon(Icons.login),
               label: const Text('Login'),
+              onPressed: () async {
+                await myAppMethods.showErrororWarningDialog(
+                    context: context,
+                    subtitle: "Are you sure?",
+                    fct: () {},
+                    isError: false);
+              },
             ),
           ),
         ],
